@@ -1,0 +1,29 @@
+<div id="middle">
+  <mat-grid-list cols="4" rowHeight="24%">
+    <mat-grid-tile colspan="4" rowspan="1">
+      <mus-player
+        [name]="players[0].name"
+        [isEsku]="players[0].isEsku"
+      ></mus-player>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="2">
+      <mus-player
+        [name]="players[1].name"
+        [isEsku]="players[1].isEsku"
+      ></mus-player>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="2">
+      <mus-player
+        [name]="players[2].name"
+        [isEsku]="players[2].isEsku"
+      ></mus-player>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="4" rowspan="1">
+      <mus-player
+        [name]="players[3].name"
+        [isEsku]="players[3].isEsku"
+      ></mus-player>
+      <mus-hand></mus-hand>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

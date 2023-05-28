@@ -1,0 +1,62 @@
+<div class="mastermind">
+  <div class="mastermind-header">
+    <mat-card
+      class="mastermind-header-secret mastermind-colors"
+      (click)="gameOver()"
+    >
+      <button
+        mat-mini-fab
+        *ngFor="let sColor of secretColors"
+        [style.backgroundColor]="displaySecret ? sColor : 'grey'"
+      ></button>
+    </mat-card>
+    <button
+      class="mastermind-header-restart"
+      mat-raised-button
+      color="primary"
+      (click)="restart()"
+    >
+      RESTART
+    </button>
+  </div>
+  <div class="mastermind-content">
+    <mat-card class="mastermind-content-attempts">
+      <ul>
+        <li class="mastermind-colors" *ngFor="let attempt of attempts">
+          <button
+            mat-mini-fab
+            *ngFor="let color of attempt.colors"
+            [style.backgroundColor]="color"
+          ></button>
+        </li>
+        <li class="mastermind-colors">
+          <button
+            mat-mini-fab
+            *ngFor="let color of currentAttempt.colors"
+            [style.backgroundColor]="color"
+          ></button>
+        </li>
+      </ul>
+    </mat-card>
+    <mat-card class="mastermind-content-guide">
+      <ul>
+        <li *ngFor="let attempt of attempts" class="mastermind-colors">
+          <button mat-mini-fab [style.backgroundColor]="'red'">
+            {{ attempt.reds }}
+          </button>
+          <button mat-mini-fab [style.backgroundColor]="'white'">
+            {{ attempt.whites }}
+          </button>
+        </li>
+      </ul>
+    </mat-card>
+  </div>
+  <mat-card class="mastermind-footer mastermind-colors">
+    <button
+      mat-mini-fab
+      *ngFor="let color of palette"
+      [style.backgroundColor]="color"
+      (click)="pickUpColor(color)"
+    ></button>
+  </mat-card>
+</div>

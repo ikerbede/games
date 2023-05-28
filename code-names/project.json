@@ -1,0 +1,44 @@
+{
+  "name": "games-code-names",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/games/code-names/src",
+  "prefix": "ib",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/games/code-names"],
+      "options": {
+        "project": "libs/games/code-names/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/games/code-names/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/games/code-names/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/games/code-names"],
+      "options": {
+        "jestConfig": "libs/games/code-names/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/games/code-names/**/*.ts",
+          "libs/games/code-names/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["feature"],
+  "implicitDependencies": ["shared"]
+}

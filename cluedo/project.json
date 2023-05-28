@@ -1,0 +1,43 @@
+{
+  "name": "games-cluedo",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/games/cluedo/src",
+  "prefix": "ib",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/games/cluedo"],
+      "options": {
+        "project": "libs/games/cluedo/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/games/cluedo/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/games/cluedo/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/games/cluedo"],
+      "options": {
+        "jestConfig": "libs/games/cluedo/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/games/cluedo/**/*.ts",
+          "libs/games/cluedo/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["feature"]
+}

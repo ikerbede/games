@@ -1,0 +1,79 @@
+<mat-toolbar color="primary">
+  <mat-icon svgIcon="search"></mat-icon>
+  <span>CLUEDO</span>
+</mat-toolbar>
+<div id="main-container" *ngIf="round">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let hand of round.getHands(); let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title> Joueur {{ i + 1 }} </mat-panel-title>
+        <mat-panel-description>
+          Appuyer pour voir les cartes
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-chip-list>
+        <mat-chip color="accent" *ngFor="let card of hand.cards">
+          <mat-icon matListIcon svgIcon="{{ card.type | toIcon }}"></mat-icon>
+          <h3 matLine>{{ card.name }}</h3>
+        </mat-chip>
+      </mat-chip-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-card id="test-container">
+    <mat-icon svgIcon="search"></mat-icon>
+    <form [formGroup]="test">
+      <mat-form-field class="mr-8px">
+        <mat-select
+          name="suspect"
+          placeholder="Suspect"
+          formControlName="suspect"
+        >
+          <mat-option
+            *ngFor="let suspect of deck.suspects"
+            [value]="suspect.id"
+          >
+            {{ suspect.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="mr-8px" #weapon>
+        <mat-select name="weapon" placeholder="Arme" formControlName="weapon">
+          <mat-option *ngFor="let weapon of deck.weapons" [value]="weapon.id">
+            {{ weapon.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field #place>
+        <mat-select name="place" placeholder="Lieu" formControlName="place">
+          <mat-option *ngFor="let place of deck.places" [value]="place.id">
+            {{ place.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+    <button
+      type="submit"
+      class="mr-8px"
+      mat-raised-button
+      color="primary"
+      (click)="testCrime()"
+    >
+      TESTER
+    </button>
+    <button mat-raised-button color="accent" (click)="clearTest()">
+      EFFACER
+    </button>
+  </mat-card>
+
+  <div id="solution-container">
+    <button mat-raised-button color="warn" (click)="displayCrime()">
+      SOLUTION
+    </button>
+  </div>
+</div>
+<div id="footer-container">
+  <button mat-fab color="accent" (click)="createNewRound()">
+    <mat-icon svgIcon="add"></mat-icon>
+  </button>
+</div>

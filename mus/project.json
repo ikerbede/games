@@ -1,0 +1,43 @@
+{
+  "name": "games-mus",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/games/mus/src",
+  "prefix": "mus",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/games/mus"],
+      "options": {
+        "project": "libs/games/mus/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/games/mus/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/games/mus/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/games/mus"],
+      "options": {
+        "jestConfig": "libs/games/mus/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/games/mus/**/*.ts",
+          "libs/games/mus/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["feature"]
+}

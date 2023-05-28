@@ -1,0 +1,20 @@
+#main-container, #footer-container {
+  padding: 15px;
+}
+#footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+#test-container {
+  margin-top: 15px;
+}
+#solution-container {
+  padding-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.mr-8px {
+  margin-right: 8px;
+}

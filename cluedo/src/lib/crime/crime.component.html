@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Crime</h2>
+<mat-dialog-content>
+  <mat-list>
+    <mat-list-item>
+      <mat-icon matListIcon svgIcon="person_outline"></mat-icon>
+      <h3 matLine>{{ data.suspect.name }}</h3>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon matListIcon svgIcon="build"></mat-icon>
+      <h3 matLine>{{ data.weapon.name }}</h3>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon matListIcon svgIcon="not_listed_location"></mat-icon>
+      <h3 matLine>{{ data.place.name }}</h3>
+    </mat-list-item>
+  </mat-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>FERMER</button>
+</mat-dialog-actions>

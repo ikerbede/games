@@ -1,0 +1,50 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+
+  mat-card {
+    min-height: 40px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+}
+
+.mastermind {
+  display: flex;
+  flex-direction: column;
+  width: 410px;
+
+  &-header, &-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  &-header-secret, &-content-attempts {
+    width: 220px;
+    margin-right: 16px;
+  }
+
+  &-header-restart {
+    width: 142px;
+    height: 72px;
+  }
+
+  &-content-guide {
+    width: 110px;
+  }
+
+  &-colors {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

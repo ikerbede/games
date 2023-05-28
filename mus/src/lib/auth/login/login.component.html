@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Izena eman</mat-card-title>
+  </mat-card-header>
+  <form (submit)="login()" id="login-form" [formGroup]="credentials">
+    <mat-form-field>
+      <mat-label>Izena</mat-label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        matInput
+        formControlName="name"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Pasa hitza</mat-label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        matInput
+        formControlName="password"
+      />
+    </mat-form-field>
+    <div class="form-actions">
+      <button type="submit" mat-raised-button color="primary">SARTU</button>
+      <button type="button" mat-raised-button>MUS KIDE BERRI</button>
+    </div>
+  </form>
+</mat-card>
